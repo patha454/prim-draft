@@ -30,22 +30,22 @@
 
 
 /**
- * @typedef uint8_ne A native endian, 8 bit, unsigned integer.
+ * @typedef uint8_ne A native (or don't care) endian, 8 bit, unsigned integer.
  */
 typedef uint8_t uint8_ne;
 
 /**
- * @typedef uint16_ne A native endian, 16 bit, unsigned integer.
+ * @typedef uint16_ne A native (or don't care) endian, 16 bit, unsigned integer.
  */
 typedef uint16_t uint16_ne;
 
 /**
- * @typedef uint32_ne A native endian, 32 bit, unsigned integer.
+ * @typedef uint32_ne A native (or don't care) endian, 32 bit, unsigned integer.
  */
 typedef uint32_t uint32_ne;
 
 /**
- * @typedef uint64_ne A native endian, 64 bit, unsigned integer.
+ * @typedef uint64_ne A native (or don't care) endian, 64 bit, unsigned integer.
  */
 typedef uint64_t uint64_ne;
 
