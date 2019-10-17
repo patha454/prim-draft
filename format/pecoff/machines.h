@@ -70,4 +70,3 @@
 #define COFF_MACH_THUMB     0x1c2
 
 #define COFF_MACH_WCEMIPSV2 0x169
-
