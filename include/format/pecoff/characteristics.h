@@ -15,6 +15,8 @@
  * @date 18/10/2019.
  */
 
+#ifndef FORMAT_PECOFF_CHARACTERISTICS_H_
+#define FORMAT_PECOFF_CHARACTERISTICS_H_
 
 /**
  * @def PE_RELOCATIONS_STRIPPED
@@ -148,3 +150,5 @@
  * image is assumed to be in the target machine's endianess.
  */
 #define COFF_BIG_ENDIAN                 0x8000
+
+#endif

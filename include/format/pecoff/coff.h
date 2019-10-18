@@ -18,6 +18,8 @@
  * @date 17/10/2019.
  */
 
+#ifndef FORMAT_PECOFF_COFF_H_
+#define FORMAT_PECOFF_COFF_H_
 
 #include "platform/types.h"
 
@@ -143,3 +145,5 @@ const char* get_coff_machine_name(uint16_ne machine_id);
  * @return  1 if the machine type is recognised; 0 otherwise.
  */
 int is_coff_machine_known(uint16_ne machine_id);
+
+#endif

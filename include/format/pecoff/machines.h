@@ -19,6 +19,8 @@
  * @date 17/10/2019.
  */
 
+#ifndef FORMAT_PECOFF_MACHINES_H_
+#define FORMAT_PECOFF_MACHINES_H_
 
 #include "platform/types.h"
 
@@ -72,3 +74,5 @@
 #define COFF_MACH_THUMB     0x1c2
 
 #define COFF_MACH_WCEMIPSV2 0x169
+
+#endif
