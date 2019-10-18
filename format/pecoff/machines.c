@@ -21,7 +21,8 @@
  * @struct machine_string
  * @brief Associates a machine ID with a string name.
  */
-struct machine_string {
+struct machine_string 
+{
     uint16_t id;
     const char const* name;
 };
@@ -69,7 +70,7 @@ const struct machine_string machine_strings[] =
  */
 const char* get_coff_machine_name(uint16_ne machine_id)
 {
-    const char* unrecognised_machine = "Unrecognised (COFF)";
+    static const char* unrecognised_machine = "Unrecognised (COFF)";
     unsigned int i;
     for (i = 0;
          i < sizeof(machine_strings) / sizeof(struct machine_string);
