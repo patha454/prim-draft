@@ -25,6 +25,9 @@
  * @date 17/10/2019.
  */
 
+#ifndef PLATFORM_TYPES_H_
+#define PLATFORM_TYPES_H_
+
 
 #include <stdint.h>
 
@@ -148,3 +151,5 @@ typedef int32_t int32_be;
  * @typedef int64_be A big endian, 64 bit, signed integer.
  */
 typedef int64_t int64_be;
+
+#endif
