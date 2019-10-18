@@ -12,6 +12,8 @@
  * considered to be the definitive reference on the PE/COFF formats for the 
  * the purpose of this file.
  * 
+ * @see machines.c for more information on the machine types.
+ * 
  * @author H Paterson.
  * @copyright Boost Software License 1.0.
  * @date 17/10/2019.
