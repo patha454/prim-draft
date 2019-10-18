@@ -22,7 +22,7 @@
 struct characteristic_string 
 {
     uint16_ne flag;
-    char* name;
+    const char* const name;
 };
 
 /**
@@ -64,7 +64,8 @@ struct characteristic_string characteristic_strings[] =
  */
 const char* get_coff_characteristic_string(uint16_ne characteristic)
 {
-    static const char* not_a_characteristic = "Not a characteristic (COFF)";
+    static const char* const not_a_characteristic 
+        = "Not a characteristic (COFF)";
     int i;
     for (i = 0;
          i < sizeof(characteristic_strings) / sizeof(struct characteristic_string);
