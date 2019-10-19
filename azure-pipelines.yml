@@ -37,12 +37,14 @@ jobs:
     inputs:
       workingDirectory: 'build'
       cmakeArgs: '..'
-  - bash: make
+  - bash: 'cat Makefile'
+    workingDirectory: 'build'
+    displayName: 'Check makefile'
+  - bash: 'make'
     displayName: 'Build Prim with make'
     workingDirectory: 'build'
     env:
       CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
-      VERBOSE: 1
       
 - job: apple__build
   displayName: macOS build
@@ -54,7 +56,14 @@ jobs:
     inputs:
       workingDirectory: 'build'
       cmakeArgs: '..'
-  - bash: ls
+  - bash: 'ls'
     workingDirectory: 'build'
-
+    displayName: 'Check Makefile'
+  - bash: 'cat Makefile'
+    workingDirectory: 'build'
+  - bash: 'make'
+    displayName: Build Prim with make'
+    workingDirectory: 'build'
+    env:
+      CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
 
