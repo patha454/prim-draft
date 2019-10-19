@@ -36,10 +36,10 @@ steps:
   inputs:
     workingDirectory: 'build'
 
-- task: MSBuild@1
+- task: VSBuild@1
   displayName: 'Build project with VSBuild`.
   inputs:
-    solution: 'build\Prim.sln'
+    solution: '**\*.sln'
   
   
 
