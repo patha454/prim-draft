@@ -28,14 +28,15 @@ jobs:
       msbuildArgs: '-property:WarningLevel=4'
 
 - job: linux_make_build
-  displayName: Linix-make build
+  displayName: Linux-make build
   pool:
     vmImage: 'ubuntu-latest'
   variables:
-    cflags: -W -Wall -ansi -pedantic -Werror -g
+    cflags: '-W -Wall -ansi -pedantic -Werror -g'
   steps:
-  - bash: CFLAGS=$(cflags)
-  - bash: export CFLAGS
+  - bash: |
+    CFLAGS=$(cflags)
+    export CFLAGS
   - task: CMake@1
     displayName: Generate make files with CMake
     inputs:
