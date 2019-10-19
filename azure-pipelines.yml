@@ -35,6 +35,8 @@ steps:
   displayName: 'Generate project files with CMake'
   inputs:
     workingDirectory: 'build'
+    cmakeArgs: '..'
+
 - task: VSBuild@1
   displayName: 'Build project with VSBuild'
   inputs:
