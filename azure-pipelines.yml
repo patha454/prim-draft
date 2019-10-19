@@ -31,19 +31,20 @@ jobs:
   displayName: Linux-make build
   pool:
     vmImage: 'ubuntu-latest'
-  variables:
-    cflags: '-W -Wall -ansi -pedantic -Werror -g'
   steps:
-  - bash: |
-    CFLAGS=$(cflags)
-    export CFLAGS
   - task: CMake@1
     displayName: Generate make files with CMake
     inputs:
       workingDirectory: 'build'
       cmakeArgs: '..'
-  - task: CmdLine@2
+  - bash: make --debug=a
+    displayName: Build Prim with make
+    workingDirectory: build
+    env: 
+  - task: bash
     displayName: Build Prim with make
     inputs:
       script: make --debug=a
       workingDirectory: build
+      env:
+        CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
