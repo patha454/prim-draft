@@ -3,17 +3,43 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+#trigger:
+#- master
+
+#pool:
+#  vmImage: 'ubuntu-latest'
+
+#steps:
+#- script: echo Hello, world!
+#  displayName: 'Run a one-line script'
+
+#- script: |
+#    echo Add other tasks to build, test, and deploy your project.
+#    echo See https://aka.ms/yaml
+#  displayName: 'Run a multi-line script'
+
+# Build all Prim targets.
+# 
+# Author: H Paterson.
+# Copyright: Boost Software License 1.0.
+# Date: 19/10/19.
+
 trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
-
+  vmImage: 'windows-latest'
+  
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: CMake@1
+  displayName: 'Generate project files with CMake'
+  inputs:
+    workingDirectory: 'build'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: VSBuild@1
+  displayName: 'Build project with VSBuild`.
+  inputs:
+    solution: 'build/Prim.slm'
+  
+  
+
