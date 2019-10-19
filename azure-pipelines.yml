@@ -42,4 +42,5 @@ jobs:
     workingDirectory: 'build'
     env:
       CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
+      VERBOSE: 1
 
