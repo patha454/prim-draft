@@ -31,9 +31,9 @@ jobs:
   displayName: Build Prim on Linux with make.
   pool:
     vmImage: 'ubuntu-latest'
-    steps:
-    - task: CMake@1
-      displayName: Generate make files with CMake'
-      inputs:
-        workingDirectory: 'build'
-        cmakeArgs: '..'
+  steps:
+  - task: CMake@1
+    displayName: Generate make files with CMake'
+    inputs:
+      workingDirectory: 'build'
+      cmakeArgs: '..'
