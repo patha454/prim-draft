@@ -43,4 +43,18 @@ jobs:
     env:
       CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
       VERBOSE: 1
+      
+- job: apple__build
+  displayName: macOS build
+  pool:
+    vmImage: 'macOS-latest'
+  steps:
+  - task: CMake@1
+    displayName: 'Generate make files with CMake'
+    inputs:
+      workingDirectory: 'build'
+      cmakeArgs: '..'
+  - bash: ls
+    workingDirectory: 'build'
+
 
