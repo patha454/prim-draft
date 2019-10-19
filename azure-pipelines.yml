@@ -7,20 +7,33 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'windows-latest'
-  
-steps:
-- task: CMake@1
-  displayName: 'Generate project files with CMake'
-  inputs:
-    workingDirectory: 'build'
-    cmakeArgs: '..'
+jobs:
 
-- task: VSBuild@1
-  displayName: 'Build project with VSBuild'
-  inputs:
-    solution: '**\*.sln'
-    maximumCpuCount: true
-    configuration: 'debug'
-    msbuildArgs: '-property:WarningLevel=4'
+- job: windows_vs_build
+  displayName: Build Prim on Windows with Visual Studio.
+  pool:
+    vmImage: 'windows-latest'
+  steps:
+  - task: CMake@1
+    displayName: 'Generate project files with CMake'
+    inputs:
+      workingDirectory: 'build'
+      cmakeArgs: '..'
+  - task: VSBuild@1
+    displayName: 'Build project with VSBuild'
+    inputs:
+      solution: '**\*.sln'
+      maximumCpuCount: true
+      configuration: 'debug'
+      msbuildArgs: '-property:WarningLevel=4'
+
+- job: linux_make_build
+  displayName: Build Prim on Linux with make.
+  pool:
+    vmImage: 'ubuntu-latest'
+    steps:
+    - task: CMake@1
+      displayName: Generate make files with CMake'
+      inputs:
+        workingDirectory: 'build'
+        cmakeArgs: '..'
