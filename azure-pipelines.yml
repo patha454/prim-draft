@@ -40,11 +40,6 @@ jobs:
   - bash: make --debug=a
     displayName: Build Prim with make
     workingDirectory: build
-    env: 
-  - task: bash
-    displayName: Build Prim with make
-    inputs:
-      script: make --debug=a
-      workingDirectory: build
-      env:
-        CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
+    env:
+      CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
+
