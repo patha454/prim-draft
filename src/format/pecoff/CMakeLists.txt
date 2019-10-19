@@ -22,6 +22,10 @@ target_include_directories(characteristics PRIVATE ${PROJECT_SOURCE_DIR}/include
 
 target_include_directories(machines PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
+add_library(magic
+            magic.c)
+
 # Use ISO C90.
 set_property(TARGET characteristics PROPERTY C_STANDARD 90)
 set_property(TARGET machines PROPERTY C_STANDARD 90)
+set_property(TARGET magic PROPERTY C_STANDARD 90)

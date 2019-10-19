@@ -95,24 +95,24 @@ struct coff_header
     uint32_ne symbol_count;
 
     /**
-     * @brief executable_header_size
-     * @brief The size of the executable header("optional header").
+     * @brief pe_header_size
+     * @brief The size of the PE image header("optional header").
      * 
-     * `executable_header_size` contains the length of the executable header, 
+     * `pe_header_size` contains the length of the executable header, 
      * which gives information for loading the image such as the entry point
      * and mode (PE32 32 bit address space, or PE32+ [almost] 64 bit address
      * space).
      * 
-     * The optional header can be diffrent lengths because Windows executables
-     * have additional data in the table, and PE32 and PE32+ executables have
-     * slightly diffrent fields and data widths.
+     * The optional header can be diffrent lengths because implimentations can
+     * add additional data to the end table, and PE32 and PE32+ executables 
+     * have slightly diffrent fields and data widths.
      * 
      * @note Microsoft refers to the executable header as the "optional
-     * header". Prim uses the name "executable header" for additional clarity.
+     * header". Prim uses the name "PE header" for additional clarity.
      * The header is not optional for PE executables, but is called optional
      * because the header can be included but is generally meaningless.
      */
-    uint16_ne executable_header_size;
+    uint16_ne pe_header_size;
 
     /**
      * @var characteristics
