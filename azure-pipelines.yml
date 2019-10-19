@@ -40,4 +40,5 @@ steps:
 - task: VSBuild@1
   displayName: 'Build project with VSBuild'
   inputs:
-    solution: 'build\Prim.sln'
+    solution: '**\*.sln'
+    maximumCpuCount: true
