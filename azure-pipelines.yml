@@ -39,4 +39,4 @@ steps:
 - task: VSBuild@1
   displayName: 'Build project with VSBuild`.
   inputs:
-    solution: '**\*.sln'
+    solution: 'build\Prim.sln'
