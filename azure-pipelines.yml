@@ -1,0 +1,67 @@
+# Build all Prim targets.
+# 
+# Author: H Paterson.
+# Copyright: Boost Software License 1.0.
+# Date: 19/10/19.
+
+trigger:
+- master
+
+jobs:
+
+- job: windows_vs_build
+  displayName: 'Windows build'
+  pool:
+    vmImage: 'windows-latest'
+  steps:
+  - task: CMake@1
+    displayName: 'Generate project files with CMake'
+    inputs:
+      workingDirectory: 'build'
+      cmakeArgs: '..'
+  - task: VSBuild@1
+    displayName: 'Build Prim with VSBuild'
+    inputs:
+      solution: '**\*.sln'
+      maximumCpuCount: true
+      configuration: 'debug'
+      msbuildArgs: '-property:WarningLevel=4'
+
+- job: linux_make_build
+  displayName: Linux build
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - task: CMake@1
+    displayName: 'Generate make files with CMake'
+    inputs:
+      workingDirectory: 'build'
+      cmakeArgs: '..'
+  - bash: 'cat Makefile'
+    workingDirectory: 'build'
+    displayName: 'Check makefile'
+  - bash: 'make'
+    displayName: 'Build Prim with make'
+    workingDirectory: 'build'
+    env:
+      CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
+      
+- job: apple__build
+  displayName: macOS build
+  pool:
+    vmImage: 'macOS-latest'
+  steps:
+  - task: CMake@1
+    displayName: 'Generate make files with CMake'
+    inputs:
+      workingDirectory: 'build'
+      cmakeArgs: '..'
+  - bash: 'cat Makefile'
+    displayName: 'Check makefile'
+    workingDirectory: 'build'
+  - bash: 'make'
+    displayName: Build Prim with make'
+    workingDirectory: 'build'
+    env:
+      CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
+
