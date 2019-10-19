@@ -36,9 +36,9 @@ jobs:
     displayName: Generate make files with CMake
     inputs:
       workingDirectory: 'build'
-      cmakeArgs: '..''
-   - task: CmdLine@2
-     displayName: Build Prim with make
-     inputs:
-       script: make
-       workingDirectory: build
+      cmakeArgs: '..'
+  - task: CmdLine@2
+    displayName: Build Prim with make
+    inputs:
+      script: make
+      workingDirectory: build
