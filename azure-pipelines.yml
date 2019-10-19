@@ -10,7 +10,7 @@ trigger:
 jobs:
 
 - job: windows_vs_build
-  displayName: 'Windows-VS build'
+  displayName: 'Windows build'
   pool:
     vmImage: 'windows-latest'
   steps:
@@ -28,7 +28,7 @@ jobs:
       msbuildArgs: '-property:WarningLevel=4'
 
 - job: linux_make_build
-  displayName: Linux-make build
+  displayName: Linux build
   pool:
     vmImage: 'ubuntu-latest'
   steps:
@@ -56,10 +56,8 @@ jobs:
     inputs:
       workingDirectory: 'build'
       cmakeArgs: '..'
-  - bash: 'ls'
-    workingDirectory: 'build'
-    displayName: 'Check Makefile'
   - bash: 'cat Makefile'
+    displayName: 'Check makefile'
     workingDirectory: 'build'
   - bash: 'make'
     displayName: Build Prim with make'
