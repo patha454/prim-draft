@@ -42,3 +42,4 @@ steps:
   inputs:
     solution: '**\*.sln'
     maximumCpuCount: true
+    configuration: 'debug'
