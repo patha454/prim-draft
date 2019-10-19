@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 #trigger:
-#- master
+#- azure-pipelines
 
 #pool:
 #  vmImage: 'ubuntu-latest'
@@ -39,7 +39,7 @@ steps:
 - task: VSBuild@1
   displayName: 'Build project with VSBuild`.
   inputs:
-    solution: 'build/Prim.slm'
+    solution: '**/*.slm'
   
   
 
