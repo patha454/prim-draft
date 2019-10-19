@@ -10,7 +10,7 @@ trigger:
 jobs:
 
 - job: windows_vs_build
-  displayName: Windows-VS build
+  displayName: 'Windows-VS build'
   pool:
     vmImage: 'windows-latest'
   steps:
@@ -33,13 +33,13 @@ jobs:
     vmImage: 'ubuntu-latest'
   steps:
   - task: CMake@1
-    displayName: Generate make files with CMake
+    displayName: 'Generate make files with CMake'
     inputs:
       workingDirectory: 'build'
       cmakeArgs: '..'
-  - bash: make --debug=a
-    displayName: Build Prim with make
-    workingDirectory: build
+  - bash: make
+    displayName: 'Build Prim with make'
+    workingDirectory: 'build'
     env:
       CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
 
