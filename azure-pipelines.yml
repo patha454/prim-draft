@@ -43,4 +43,4 @@ steps:
     solution: '**\*.sln'
     maximumCpuCount: true
     configuration: 'debug'
-    msbuildArgs: '-p:WarningLevel=4;warningsAsErrors=true'
+    msbuildArgs: '-p:warningLevel=4;warningsAsErrors=true'
