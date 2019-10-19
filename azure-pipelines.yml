@@ -10,7 +10,7 @@ trigger:
 jobs:
 
 - job: windows_vs_build
-  displayName: Build Prim on Windows with Visual Studio.
+  displayName: Windows-VS build
   pool:
     vmImage: 'windows-latest'
   steps:
@@ -20,7 +20,7 @@ jobs:
       workingDirectory: 'build'
       cmakeArgs: '..'
   - task: VSBuild@1
-    displayName: 'Build project with VSBuild'
+    displayName: 'Build Prim with VSBuild'
     inputs:
       solution: '**\*.sln'
       maximumCpuCount: true
@@ -28,12 +28,17 @@ jobs:
       msbuildArgs: '-property:WarningLevel=4'
 
 - job: linux_make_build
-  displayName: Build Prim on Linux with make.
+  displayName: Linix-make build
   pool:
     vmImage: 'ubuntu-latest'
   steps:
   - task: CMake@1
-    displayName: Generate make files with CMake'
+    displayName: Generate make files with CMake
     inputs:
       workingDirectory: 'build'
-      cmakeArgs: '..'
+      cmakeArgs: '..''
+   - task: CmdLine@2
+     displayName: Build Prim with make
+     inputs:
+       script: make
+       workingDirectory: build
