@@ -66,7 +66,7 @@ const char* get_coff_characteristic_string(uint16_ne characteristic)
 {
     static const char* const not_a_characteristic 
         = "Not a characteristic (COFF)";
-    int i;
+    unsigned int i;
     for (i = 0;
          i < sizeof(characteristic_strings) / sizeof(struct characteristic_string);
          i++)

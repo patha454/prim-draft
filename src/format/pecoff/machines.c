@@ -23,13 +23,13 @@
  */
 struct machine_string 
 {
-    uint16_t id;
+    uint16_ne id;
     const char* const name;
 };
 
 /**
  * @var machine_strings
- * @brief machine_string pairs COFF machine IDs with human readable names.
+ * @brief machine_strings pairs COFF machine IDs with human readable names.
  */
 const struct machine_string machine_strings[] = 
 {
@@ -102,7 +102,8 @@ int is_coff_machine_known(uint16_ne machine_id)
          i < sizeof(machine_strings) / sizeof(struct machine_string);
          i++)
     {
-        if (machine_strings[i].id == machine_id) {
+        if (machine_strings[i].id == machine_id) 
+        {
             return 1;
         }
     }
