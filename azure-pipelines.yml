@@ -64,6 +64,4 @@ jobs:
   - bash: 'make'
     displayName: Build Prim with make'
     workingDirectory: 'build'
-    env:
-      CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
 
