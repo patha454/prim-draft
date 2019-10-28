@@ -19,6 +19,9 @@ jobs:
     inputs:
       workingDirectory: 'build'
       cmakeArgs: '-D "CMAKE_C_FLAGS:STRING=-W4 -WX" ..'
+  - bash: 'cat CMakeCache.txt'
+    displayName: 'Check CMakeCache.txt'
+    workingDirectory: 'build'
   - task: VSBuild@1
     displayName: 'Build Prim with VSBuild'
     inputs:
@@ -26,9 +29,6 @@ jobs:
       maximumCpuCount: true
       configuration: 'debug'
       msbuildArgs: '-property:WarningLevel=4'
-  - bash: 'cat CMakeCache.txt'
-    displayName: 'Check CMakeCache.txt'
-    workingDirectory: 'build'
 
 - job: linux_make_build
   displayName: Linux build
