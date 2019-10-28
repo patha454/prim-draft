@@ -12,8 +12,10 @@
  * @date 18/10/2019.
  */
 
+
 #include "format/pecoff/characteristics.h"
 #include "platform/types.h"
+
 
 /**
  * @struct characteristic_string

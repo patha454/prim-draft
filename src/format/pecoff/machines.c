@@ -63,8 +63,6 @@ const struct machine_string machine_strings[] =
 /**
  * @brief Returns the human readable representation of a machine ID.
  * 
- * @see machines.h for more information.
- * 
  * @param   machine_id  The COFF machine ID.
  * @return  A pointer to a human readable machine name.
  */

@@ -18,6 +18,10 @@
 #ifndef FORMAT_PECOFF_CHARACTERISTICS_H_
 #define FORMAT_PECOFF_CHARACTERISTICS_H_
 
+
+#include "platform/types.h"
+
+
 /**
  * @def PE_RELOCATIONS_STRIPPED
  * @brief Indicates a PE image has no relocation information available.
@@ -150,5 +154,20 @@
  * image is assumed to be in the target machine's endianess.
  */
 #define COFF_BIG_ENDIAN                 0x8000
+
+/**
+ * @brief Gets the human readable string associated with a characteristic flag.
+ * 
+ * get_coff_characteristic_string matches a COFF characteristic flag to a human
+ * readable string describing the chracteristic.
+ * 
+ * This function returns eagerly, so it will only match the first flag in
+ * `characteristic`. The function should be called with each flag in the field
+ * to build up a full set of characteristic strings.
+ * 
+ * @param   characteristic  The COFF characteristic flag to match.
+ * @return  A pointer to a human readable string describing `characteristic`.
+ */
+const char* get_coff_characteristic_string(uint16_ne characteristic);
 
 #endif
