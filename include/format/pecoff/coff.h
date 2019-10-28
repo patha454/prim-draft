@@ -21,6 +21,7 @@
 #ifndef FORMAT_PECOFF_COFF_H_
 #define FORMAT_PECOFF_COFF_H_
 
+
 #include "platform/types.h"
 
 
@@ -122,28 +123,5 @@ struct coff_header
      */
     uint16_ne characteristics;
 };
-
-/**
- * @brief Returns the human readable representation of a machine ID.
- * 
- * If the machine ID is unknown, get_coff_machine_name() will return a pointer
- * to a string stating the machine is unrecognised.
- * 
- * @param   machine_id  The COFF machine ID.
- * @return  A pointer to a human readable machine name.
- */
-const char* get_coff_machine_name(uint16_ne machine_id);
-
-/**
- * @brief Indicates if a machine ID corresponds to a known COFF machine ID.
- * 
- * The PE/COFF "Unknown" machine type is considered to be known for the purpose
- * of this function. A machine ID is considered unknown if it does not appear 
- * in the PE/COFF specification.
- * 
- * @param   machine_id  The COFF machine ID.
- * @return  1 if the machine type is recognised; 0 otherwise.
- */
-int is_coff_machine_known(uint16_ne machine_id);
 
 #endif

@@ -5,10 +5,13 @@
 # Set required Cmake version.
 cmake_minimum_required(VERSION 2.8.1)
 
-# Generate PE/COFF libraries.
-add_library(pecoff 
-            characteristics.c
+# Select sources for compilation.
+add_library(characteristics
+            characteristics.c)
+
+add_library(machines
             machines.c)
 
-# Use ISO C90
-set_property(TARGET pecoff PROPERTY C_STANDARD 90)
+# Use ISO C90.
+set_property(TARGET characteristics PROPERTY C_STANDARD 90)
+set_property(TARGET machines PROPERTY C_STANDARD 90)
