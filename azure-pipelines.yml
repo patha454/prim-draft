@@ -18,7 +18,10 @@ jobs:
     displayName: 'Generate project files with CMake'
     inputs:
       workingDirectory: 'build'
-      cmakeArgs: '..'
+      cmakeArgs: '-D "CMAKE_C_FLAGS:STRING=-W4 -WX" ..'
+  - bash: 'cat CMakeCache.txt'
+    displayName: 'Check CMakeCache.txt'
+    workingDirectory: 'build'
   - task: VSBuild@1
     displayName: 'Build Prim with VSBuild'
     inputs:
@@ -36,15 +39,13 @@ jobs:
     displayName: 'Generate make files with CMake'
     inputs:
       workingDirectory: 'build'
-      cmakeArgs: '..'
-  - bash: 'cat Makefile'
+      cmakeArgs: '-D "CMAKE_C_FLAGS:STRING=-W -Wall -Wextra -ansi -pedantic -Werror" ..'
+  - bash: 'cat CMakeCache.txt'
+    displayName: 'Check CMakeCache.txt'
     workingDirectory: 'build'
-    displayName: 'Check makefile'
   - bash: 'make'
     displayName: 'Build Prim with make'
     workingDirectory: 'build'
-    env:
-      CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
       
 - job: apple__build
   displayName: macOS build
@@ -55,13 +56,12 @@ jobs:
     displayName: 'Generate make files with CMake'
     inputs:
       workingDirectory: 'build'
-      cmakeArgs: '..'
-  - bash: 'cat Makefile'
-    displayName: 'Check makefile'
+      cmakeArgs: '-D "CMAKE_C_FLAGS:STRING=-W -Wall -std=c89 -pedantic -Wextra -Werror" ..'
+      env: 'CC=clang'
+  - bash: 'cat CMakeCache.txt'
+    displayName: 'Check CMakeCache.txt'
     workingDirectory: 'build'
   - bash: 'make'
     displayName: Build Prim with make'
     workingDirectory: 'build'
-    env:
-      CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
 
