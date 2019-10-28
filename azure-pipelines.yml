@@ -18,7 +18,7 @@ jobs:
     displayName: 'Generate project files with CMake'
     inputs:
       workingDirectory: 'build'
-      cmakeArgs: '-D "CMAKE_C_FLAGS:STRING=-Wall -WX" ..'
+      cmakeArgs: '-D "CMAKE_C_FLAGS:STRING=-W4 -WX" ..'
   - task: VSBuild@1
     displayName: 'Build Prim with VSBuild'
     inputs:
