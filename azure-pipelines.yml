@@ -19,6 +19,7 @@ jobs:
     inputs:
       workingDirectory: 'build'
       cmakeArgs: '..'
+      env: 'CFLAGS="/W4 /Wall /Wx"'
   - task: VSBuild@1
     displayName: 'Build Prim with VSBuild'
     inputs:
@@ -37,14 +38,13 @@ jobs:
     inputs:
       workingDirectory: 'build'
       cmakeArgs: '..'
+      env: 'CFLAGS="-W -Wall -Wextra -ansi -pedantic -Werror"'
   - bash: 'cat Makefile'
     workingDirectory: 'build'
     displayName: 'Check makefile'
   - bash: 'make'
     displayName: 'Build Prim with make'
     workingDirectory: 'build'
-    env:
-      CFLAGS: '-W -Wall -ansi -pedantic -Werror -g'
       
 - job: apple__build
   displayName: macOS build
@@ -56,6 +56,7 @@ jobs:
     inputs:
       workingDirectory: 'build'
       cmakeArgs: '..'
+      env: 'CC=clang CFLAGS="-W -Wall -std=c89 -pedantic -Wextra -Werror"'
   - bash: 'cat Makefile'
     displayName: 'Check makefile'
     workingDirectory: 'build'
