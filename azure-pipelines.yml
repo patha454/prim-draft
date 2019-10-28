@@ -18,7 +18,7 @@ jobs:
     displayName: 'Generate project files with CMake'
     inputs:
       workingDirectory: 'build'
-      cmakeArgs: '-D "CMAKE_C_FLAGS:STRING=-Wall -Wx" ..'
+      cmakeArgs: '-D "CMAKE_C_FLAGS:STRING=-Wall -WX" ..'
   - task: VSBuild@1
     displayName: 'Build Prim with VSBuild'
     inputs:
@@ -56,7 +56,7 @@ jobs:
     displayName: 'Generate make files with CMake'
     inputs:
       workingDirectory: 'build'
-      cmakeArgs: '-D "CMAKE_C_FLAGS:STRING-W -Wall -std=c89 -pedantic -Wextra -Werror" ..'
+      cmakeArgs: '-D "CMAKE_C_FLAGS:STRING=-W -Wall -std=c89 -pedantic -Wextra -Werror" ..'
       env: 'CC=clang'
   - bash: 'cat CMakeCache.txt'
     displayName: 'Check CMakeCache.txt'
