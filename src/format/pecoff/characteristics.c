@@ -31,22 +31,22 @@ struct characteristic_string
  */
 struct characteristic_string characteristic_strings[] =
 {
-    PE_RELOCATIONS_STRIPPED,            "PE relocations stripped (COFF)",
-    PE_IMAGE_EXECUTABLE,                "PE image is a valid executable (COFF)",
-    COFF_LINE_NUMS_STRIPPED,            "Line numbers stripped. Deprecated/SBZ (COFF)",
-    COFF_LOCAL_SYMBOLS_STRIPPED,        "Local symbols stripped. Deprecated/SBZ (COFF)",
-    COFF_AGGRESSIVE_WS_TRIM,            "Aggressive workspace trim. Obsolete/SBZ (COFF)",
-    COFF_LARGE_ADDRESS_AWARE,           "Large address space aware (COFF)",
-    COFF_RESERVED_1,                    "Reserved 1. SBZ (COFF)",
-    COFF_LITTLE_ENDIAN,                 "Little endian. Deprecated/SBZ (COFF)",
-    COFF_32_BIT_IMAGE,                  "32-bit image (COFF)",
-    COFF_DEBUG_INFO_STRIPPED,           "Debugging info stripped (COFF)",
-    COFF_REMOVABLE_RUN_FROM_SWAP,       "Removable run from swap space (COFF)",
-    COFF_NET_RUN_FROM_SWAP,             "Network run from swap space (COFF)",
-    COFF_SYSTEM_FILE,                   "Operating system image (COFF)",
-    COFF_DLL,                           "Dynamically linked library (COFF)",
-    COFF_UNIPROCESSOR_ONLY,             "Uniprocessor only (COFF)",
-    COFF_BIG_ENDIAN,                    "Big endian. Deprecated/SBZ (COFF)",
+    {PE_RELOCATIONS_STRIPPED,            "PE relocations stripped (COFF)"},
+    {PE_IMAGE_EXECUTABLE,                "PE image is a valid executable (COFF)"},
+    {COFF_LINE_NUMS_STRIPPED,            "Line numbers stripped. Deprecated/SBZ (COFF)"},
+    {COFF_LOCAL_SYMBOLS_STRIPPED,        "Local symbols stripped. Deprecated/SBZ (COFF)"},
+    {COFF_AGGRESSIVE_WS_TRIM,            "Aggressive workspace trim. Obsolete/SBZ (COFF)"},
+    {COFF_LARGE_ADDRESS_AWARE,           "Large address space aware (COFF)"},
+    {COFF_RESERVED_1,                    "Reserved 1. SBZ (COFF)"},
+    {COFF_LITTLE_ENDIAN,                 "Little endian. Deprecated/SBZ (COFF)"},
+    {COFF_32_BIT_IMAGE,                  "32-bit image (COFF)"},
+    {COFF_DEBUG_INFO_STRIPPED,           "Debugging info stripped (COFF)"},
+    {COFF_REMOVABLE_RUN_FROM_SWAP,       "Removable run from swap space (COFF)"},
+    {COFF_NET_RUN_FROM_SWAP,             "Network run from swap space (COFF)"},
+    {COFF_SYSTEM_FILE,                   "Operating system image (COFF)"},
+    {COFF_DLL,                           "Dynamically linked library (COFF)"},
+    {COFF_UNIPROCESSOR_ONLY,             "Uniprocessor only (COFF)"},
+    {COFF_BIG_ENDIAN,                    "Big endian. Deprecated/SBZ (COFF)"},
 };
 
 /**
