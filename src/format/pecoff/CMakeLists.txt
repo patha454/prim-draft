@@ -16,18 +16,11 @@ add_library(machines
             ${PROJECT_SOURCE_DIR}/include/format/pecoff/machines.h
             ${PROJECT_SOURCE_DIR}/include/platform/types.h)
 
-add_library(magic
-            magic.c
-            ${PROJECT_SOURCE_DIR}/include/format/pecoff/magic.h
-            ${PROJECT_SOURCE_DIR}/include/platform/types.h)
-
 # Set includes
 
 target_include_directories(characteristics PRIVATE ${PROJECT_SOURCE_DIR}/include/)
 
 target_include_directories(machines PRIVATE ${PROJECT_SOURCE_DIR}/include)
-
-target_include_directories(magic PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
 # Use ISO C90.
 set_property(TARGET characteristics PROPERTY C_STANDARD 90)
